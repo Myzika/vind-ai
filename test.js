@@ -16,8 +16,11 @@ Bot.prototype.botBrain = function() {
 
         // Set myDir to what you want and it will set bot.goDir to that direction at the end.  Unless it is "none"
         var myDir;
+        
+        //
         var myPos = [bot.yourBot.pos.x, bot.yourBot.pos.y];
 
+        //
         var enemyBots = [];
         if(bot.yourBot.id != 1) enemyBots.push(bot.bot1);
         if(bot.yourBot.id != 2) enemyBots.push(bot.bot2);
@@ -28,8 +31,9 @@ Bot.prototype.botBrain = function() {
         /*                                      *
          * This Code Decides WHAT to do         *
          *                                      */
-        var task;
-        task = "freemines";
+        var task = "none"
+
+
 
 
 
@@ -37,33 +41,21 @@ Bot.prototype.botBrain = function() {
          * This Code Determines HOW to do it    *
          *                                      */
 
-        // This Code find the nearest freemine and sets myDir toward that direction //
-        if(task === "freemines") {
-            var closestMine = bot.freeMines[0];
-            for(i = 0; i < bot.freeMines.length; i++) {
-                if(bot.findDistance(myPos, closestMine) > bot.findDistance(myPos, bot.freeMines[i])) {
-                    closestMine = bot.freeMines[i];
-                }
-            }
-            console.log("Claiming a Free Mine!");
-            myDir = bot.findPath(myPos, closestMine);
-        }
-
-
-        /*                                                                                                                              *
-         * This Code Sets your direction based on myDir.  If you are trying to go to a place that you can't reach, you move randomly.   *
-         * Otherwise you move in the direction set by your code.  Feel free to change this code if you want.                            */
-        if(myDir === "none") {
+        if(task === "none") {
             console.log("Going Random!");
             var rand = Math.floor(Math.random() * 4);
             var dirs = ["north", "south", "east", "west"];
-            bot.goDir = dirs[rand];
-        } else {
-            bot.goDir = myDir;
+            myDir = dirs[rand];
         }
 
 
 
+
+        /*                                                                          *
+         * This Code Sets your direction based on myDir. Change if you want.        */
+
+        bot.goDir = myDir;
+        
         ///////////* DON'T REMOVE ANTYTHING BELOW THIS LINE *//////////////
         resolve();
     });
