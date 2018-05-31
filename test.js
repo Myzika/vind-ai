@@ -1,7 +1,7 @@
 var Bot = require('bot');
 var PF = require('pathfinding');
-var bot = new Bot('t44uk7pz', 'training', 'http://vind-legacy.thegrid.red'); //Put your bot's code here and change training to Arena when you want to fight others.
-//var bot = new Bot('a0ebuvoi', 'arena', 'http://bgdb.hesby.io:9000'); //Put your bot's code here and change training to Arena when you want to fight others.
+//ddvar bot = new Bot('t44uk7pz', 'training', 'http://vind-legacy.thegrid.red'); //Put your bot's code here and change training to Arena when you want to fight others.
+var bot = new Bot('a0ebuvoi', 'arena', 'http://bgdb.hesby.io:9000'); //Put your bot's code here and change training to Arena when you want to fight others.
 var goDir;
 var Promise = require('bluebird');
 Bot.prototype.botBrain = function() {
