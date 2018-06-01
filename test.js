@@ -17,10 +17,14 @@ Bot.prototype.botBrain = function() {
         // Set myDir to what you want and it will set bot.goDir to that direction at the end.  Unless it is "none"
         var myDir;
 
-        //
+        /**
+         * Stores the location of your bot.
+         */ 
         var myPos = [bot.yourBot.pos.x, bot.yourBot.pos.y];
 
-        //
+        /**
+         * Adds enemy bots to an array
+         */ 
         var enemyBots = [];
         if (bot.yourBot.id != 1) enemyBots.push(bot.bot1);
         if (bot.yourBot.id != 2) enemyBots.push(bot.bot2);
@@ -49,6 +53,7 @@ Bot.prototype.botBrain = function() {
         /*                                      *
          * This Code Decides WHAT to do         *
          *                                      */
+         
         /**
          * Decides which task needs to be done.
          */
